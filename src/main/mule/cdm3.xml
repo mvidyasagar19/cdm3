@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="5f41c991-9795-468a-a911-203347b6033c" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="cdm3Flow" doc:id="01e3fa72-3014-4ea5-84c3-f7244eaf0d34" >
+		<http:listener doc:name="Listener" doc:id="8d8e4fad-b6c4-4628-8d07-511d4bb0473a" config-ref="HTTP_Listener_config" path="/cdm3"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e11d25fb-f973-4e3c-bcd5-3266c4ebfb4b" message="********flow started**********"/>
+		<set-payload value="couldhub-deploy-maven project deployment in cloudhub using maven plugins:::::: success" doc:name="Set Payload" doc:id="2a121972-8d92-41bb-94d9-405925c0a0b6" />
+	</flow>
+</mule>
